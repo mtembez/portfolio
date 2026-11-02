@@ -48,6 +48,10 @@
     </ul>
 
     <div class="nav-actions">
+      <a href="contact.html" class="btn-primary" style="padding: 0.35rem 0.85rem; font-size: 0.8rem; text-decoration: none;" onclick="playClickSound()">
+        <span>Hire / Contact</span>
+      </a>
+
       <button class="sfx-toggle-btn" id="sfxToggle" onclick="toggleSFX()" aria-label="Toggle tactile sound effects">
         <span>🔊</span>
         <span>SFX ON</span>
@@ -554,36 +558,118 @@
       </div>
     </section>
 
-    <!-- 7. CONTACT SECTION -->
+    <!-- 7. CONTACT & EXPERT CONSULTATION SECTION -->
     <section id="contact">
       <div class="section-header">
-        <div class="section-eyebrow">Get In Touch</div>
-        <h2 class="section-title">Initiate Collaboration</h2>
-        <p class="section-subtitle">Looking for an engineer who excels at low-level performance, AI systems, and disciplined design? Let's connect.</p>
+        <div class="section-eyebrow">Hire an Expert · Direct Collaboration</div>
+        <h2 class="section-title">Engage Simon Munyambu</h2>
+        <p class="section-subtitle">Looking for an engineer to architect low-latency systems, optimize AI/ML inference pipelines, or audit core infrastructure? Connect directly below.</p>
+        <div class="response-badge" style="margin-top: 0.85rem;">
+          <span class="status-dot"></span>
+          <span>⚡ Usually responds within 4 hours · Nairobi (UTC+3) · Available Worldwide</span>
+        </div>
       </div>
 
-      <div class="contact-grid">
-        <a href="mailto:simonmunyambu@gmail.com" class="contact-card" onclick="playClickSound()">
-          <div class="contact-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      <div class="consultation-layout">
+        <!-- Left: Consulting Value Proposition & Direct Channels -->
+        <div class="consultation-info-col">
+          <div class="consult-value-card">
+            <h3 class="consult-value-title">What I Help You Solve</h3>
+            <ul class="consult-value-list">
+              <li class="consult-value-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div><strong>High-Throughput Low-Latency Systems:</strong> C/C++20, Rust, POSIX, Linux io_uring, epoll event loops, and cache optimization.</div>
+              </li>
+              <li class="consult-value-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div><strong>Production AI/ML & LLM Inference:</strong> PyTorch, TensorRT, vLLM batch scheduling, dynamic FP8 quantization, and CUDA kernels.</div>
+              </li>
+              <li class="consult-value-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div><strong>Database & Distributed Backends:</strong> SQLite WAL mode, Go/Python async engines, and zero-downtime migrations.</div>
+              </li>
+              <li class="consult-value-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div><strong>Codebase Audits & Pre-Mortems:</strong> Identifying race conditions, memory leaks, and premature abstractions before commit.</div>
+              </li>
+            </ul>
           </div>
-          <div>
-            <div style="font-weight: 700;">Direct Email</div>
-            <div style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">simonmunyambu@gmail.com</div>
-          </div>
-        </a>
 
-        <a href="https://github.com/mtembez" target="_blank" rel="noopener noreferrer" class="contact-card" onclick="playClickSound()">
-          <div class="contact-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <div class="contact-grid">
+            <a href="mailto:simonmunyambu@gmail.com" class="contact-card" onclick="playClickSound()">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div>
+                <div style="font-weight: 700;">Direct Email</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">simonmunyambu@gmail.com</div>
+              </div>
+            </a>
+
+            <a href="https://github.com/mtembez" target="_blank" rel="noopener noreferrer" class="contact-card" onclick="playClickSound()">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </div>
+              <div>
+                <div style="font-weight: 700;">GitHub Repositories</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">github.com/mtembez</div>
+              </div>
+            </a>
           </div>
-          <div>
-            <div style="font-weight: 700;">GitHub Repositories</div>
-            <div style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">github.com/mtembez</div>
-          </div>
-        </a>
+
+          <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: -0.5rem;">
+            Prefer a full dedicated view? <a href="contact.html" style="color:var(--sky); text-decoration: none; font-weight:600;">Open Standalone Contact Page ↗</a>
+          </p>
+        </div>
+
+        <!-- Right: Interactive Consultation Inquiry Form -->
+        <div class="consult-form-card">
+          <form id="consultationForm" onsubmit="handleConsultationSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="clientName" class="form-label">Your Name / Organization</label>
+                <input type="text" id="clientName" class="form-input" placeholder="e.g. Alex (DeepScale Systems)" required>
+              </div>
+              <div class="form-group">
+                <label for="clientEmail" class="form-label">Work Email</label>
+                <input type="email" id="clientEmail" class="form-input" placeholder="alex@company.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="engagementType" class="form-label">Engagement / Inquiry Type</label>
+              <select id="engagementType" class="form-select" required>
+                <option value="Full-Time Staff / Lead Systems Role">Full-Time Staff / Lead Systems Role</option>
+                <option value="Architecture & Systems Consulting">Architecture & Systems Consulting</option>
+                <option value="AI / ML Model Serving & CUDA Optimization">AI / ML Model Serving & CUDA Optimization</option>
+                <option value="Codebase Audit & Pre-Mortem Review">Codebase Audit & Pre-Mortem Review</option>
+                <option value="Advisory / Contract Engineering">Advisory / Contract Engineering</option>
+                <option value="General Technical Inquiry">General Technical Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="projectBrief" class="form-label">Project Brief / Technical Requirements</label>
+              <textarea id="projectBrief" class="form-textarea" placeholder="Detail your technical architecture, latency requirements, timeline, or scope..." required></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary" onclick="playClickSound()">
+                <span>Send Inquiry (Direct Mail)</span>
+                <span>→</span>
+              </button>
+              <button type="button" id="copyEmailBtn" class="btn-copy-email" onclick="copyEmailToClipboard()">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy Email</span>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
+
+    <!-- Global Toast Alert Container -->
+    <div id="toastNotification" class="toast-notification"></div>
 
     <!-- FOOTER -->
     <footer class="footer">

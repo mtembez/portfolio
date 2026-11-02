@@ -171,6 +171,37 @@ class TestPortfolioWebsite(unittest.TestCase):
         self.assertIn("Escape", self.js)
         self.assertIn("KeyK", self.js)
 
+    def test_expert_consultation_form_in_index(self):
+        """Verify the interactive expert consultation form in index.html."""
+        form_elements = [
+            'id="consultationForm"',
+            'id="clientName"',
+            'id="clientEmail"',
+            'id="engagementType"',
+            'id="projectBrief"',
+            'id="copyEmailBtn"',
+        ]
+        for elem in form_elements:
+            with self.subTest(element=elem):
+                self.assertIn(elem, self.html, f"Form element '{elem}' missing in index.html")
+
+    def test_contact_page_exists_and_valid(self):
+        """Verify the dedicated standalone contact.html page exists with valid HTML5 and back-links."""
+        contact_path = os.path.join(PORTFOLIO_DIR, "contact.html")
+        self.assertTrue(os.path.isfile(contact_path), f"contact.html missing at {contact_path}")
+        with open(contact_path, "r", encoding="utf-8") as f:
+            c_html = f.read()
+        self.assertIn("<!DOCTYPE html>", c_html)
+        self.assertIn("Simon Munyambu", c_html)
+        self.assertIn('id="consultationForm"', c_html)
+        self.assertIn('href="index.html"', c_html)
+
+    def test_js_contact_functions(self):
+        """Verify copy-to-clipboard, mailto constructor, and toast alert in app.js."""
+        self.assertIn("copyEmailToClipboard", self.js)
+        self.assertIn("handleConsultationSubmit", self.js)
+        self.assertIn("showToast", self.js)
+
     def test_external_links_security(self):
         """Ensure external anchor tags specify rel='noopener noreferrer' and target='_blank'."""
         external_links = re.findall(r'<a\s+[^>]*href=["\'](http[s]?://[^"\']+)["\'][^>]*>', self.html)

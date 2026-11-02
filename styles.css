@@ -1221,11 +1221,184 @@ section {
 /* --------------------------------------------------------------------------
    Contact Modal
    -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   Contact & Expert Consultation Section
+   -------------------------------------------------------------------------- */
+.consultation-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+.consultation-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.consult-value-card {
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+}
+
+.consult-value-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+}
+
+.consult-value-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.consult-value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.consult-value-item svg {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  color: var(--sky);
+}
+
+.response-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: var(--emerald);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  width: fit-content;
+}
+
+/* Consultation Form Card */
+.consult-form-card {
+  padding: 1.75rem;
+  border-radius: 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-label {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  background: #141418;
+  border: 1px solid var(--border-subtle);
+  color: #fafafa;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--sky);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.btn-copy-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s var(--ease-spring);
+}
+
+.btn-copy-email:hover {
+  background: var(--card-hover);
+  color: var(--text-main);
+  border-color: var(--sky);
+}
+
+/* Toast Notification */
+.toast-notification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 10px;
+  background: #18181d;
+  border: 1px solid var(--sky);
+  color: #fafafa;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.25s var(--ease-spring);
+  pointer-events: none;
+}
+
+.toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .contact-card {
@@ -1308,6 +1481,7 @@ section {
   }
   .projects-grid { grid-template-columns: 1fr; }
   .philosophy-grid { grid-template-columns: 1fr; }
+  .consultation-layout { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -1316,6 +1490,7 @@ section {
   .hero-title { font-size: 2.3rem; }
   .telemetry-node-strip { grid-template-columns: 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
   .slide-drawer { max-width: 100%; }
   .badge-top-right { right: 0; }
   .badge-bottom-left { left: 0; }

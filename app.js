@@ -719,6 +719,77 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
+/* ==========================================================================
+   11. Expert Consultation & Direct Inquiry Handlers
+   ========================================================================== */
+function handleConsultationSubmit(e) {
+  e.preventDefault();
+  playClickSound();
+
+  const name = document.getElementById('clientName').value.trim();
+  const email = document.getElementById('clientEmail').value.trim();
+  const type = document.getElementById('engagementType').value;
+  const brief = document.getElementById('projectBrief').value.trim();
+
+  const subject = encodeURIComponent(`[Consultation Inquiry] ${type} - ${name}`);
+  const body = encodeURIComponent(
+    `Hello Simon,\n\n` +
+    `I am reaching out regarding a ${type}.\n\n` +
+    `Client / Organization: ${name}\n` +
+    `Contact Email: ${email}\n` +
+    `Engagement Focus: ${type}\n\n` +
+    `Project Requirements / Technical Scope:\n${brief}\n\n` +
+    `---\nSent via Simon Munyambu Systems Console`
+  );
+
+  showToast('✓ Opening mail client with inquiry details...');
+  setTimeout(() => {
+    window.location.href = `mailto:simonmunyambu@gmail.com?subject=${subject}&body=${body}`;
+  }, 400);
+}
+
+function copyEmailToClipboard() {
+  playClickSound();
+  const email = 'simonmunyambu@gmail.com';
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(email)
+      .then(() => showToast('✓ Copied simonmunyambu@gmail.com to clipboard'))
+      .catch(() => fallbackCopy(email));
+  } else {
+    fallbackCopy(email);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try {
+    document.execCommand('copy');
+    showToast('✓ Copied simonmunyambu@gmail.com to clipboard');
+  } catch (err) {
+    showToast('Direct: simonmunyambu@gmail.com');
+  }
+  document.body.removeChild(ta);
+}
+
+function showToast(message) {
+  const toast = document.getElementById('toastNotification');
+  if (!toast) return;
+
+  toast.textContent = message;
+  toast.classList.add('show');
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3200);
+}
+
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, '&amp;')
