@@ -652,6 +652,10 @@ section {
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5);
 }
 
+.bento-card[data-domain="design"]:hover {
+  border-color: rgba(244, 63, 94, 0.4);
+}
+
 .card-icon-header {
   display: flex;
   align-items: center;

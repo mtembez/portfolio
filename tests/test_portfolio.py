@@ -76,10 +76,24 @@ class TestPortfolioWebsite(unittest.TestCase):
             "AI / Machine Learning",
             "Distributed Systems & Backend",
             "Frontend & Design Engineering",
+            "Visual & Graphic Design",
         ]
         for domain in required_domains:
             with self.subTest(domain=domain):
                 self.assertIn(domain, self.html, f"Domain '{domain}' missing from skills matrix")
+
+    def test_graphic_design_skills_coverage(self):
+        """Ensure graphic design domain and keywords are present as complementary skills."""
+        design_keywords = [
+            "Brand Identity",
+            "Vector Illustration",
+            "Figma",
+            "Typography",
+        ]
+        for kw in design_keywords:
+            with self.subTest(keyword=kw):
+                self.assertIn(kw, self.html, f"Design keyword '{kw}' missing from HTML")
+        self.assertIn("data-domain=\"design\"", self.html, "Missing data-domain='design' attribute")
 
     def test_key_technologies_present(self):
         """Ensure Simon's core technical stack keywords appear in the portfolio."""

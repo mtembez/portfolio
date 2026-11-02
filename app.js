@@ -363,6 +363,10 @@ Philosophy: Zero AI slop, pre-mortem failure modeling, deterministic Exit Code 0
 [4] Frontend & Design Engineering:
     • TypeScript, Tailwind Tokens, Shadcn/Tremor design patterns
     • Emil Kowalski micro-interactions, canvas animation, WCAG AA
+[5] Visual & Graphic Design (Complementary Craft):
+    • Brand identity systems, custom SVG vectors, logo design
+    • Figma component systems, typography hierarchy, motion design
+    • Color theory, spatial composition, and digital product aesthetics
 `,
 
   'projects': () => `
@@ -632,6 +636,7 @@ const CMDK_ITEMS = [
   { label: 'Contact Simon Munyambu', shortcut: '#contact', action: () => scrollToSection('contact') },
   { label: 'Open GitHub Profile (@mtembez)', shortcut: 'External', action: () => window.open('https://github.com/mtembez', '_blank') },
   { label: 'Open Live Applications Tracker', shortcut: 'Production', action: () => window.open('https://mtembez.github.io/applications-tracker/', '_blank') },
+  { label: 'View Graphic Design & Visual Craft', shortcut: 'Creative', action: () => { scrollToSection('skills'); filterSkills('design'); } },
   { label: 'Toggle SFX Sound Engine', shortcut: 'Audio', action: () => toggleSFX() },
   { label: 'Run Neofetch Diagnostic', shortcut: 'Terminal', action: () => { scrollToSection('terminal'); termInput.value = 'neofetch'; termInput.dispatchEvent(new KeyboardEvent('keydown', {'key':'Enter'})); } }
 ];
