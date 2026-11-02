@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simon Munyambu | Software & AI/ML Systems Engineer</title>
+  
+  <meta name="description" content="Official portfolio of Simon Munyambu: Software & AI/ML Systems Engineer in Nairobi, Kenya. Specializing in low-level systems, Linux kernel internals, PyTorch, distributed backends, and deterministic design engineering.">
+  <meta name="author" content="Simon Munyambu">
+  <meta name="keywords" content="Simon Munyambu, Software Engineer, AI Systems, Linux, C++, Rust, Go, Python, PyTorch, Nairobi, Kenya">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Simon Munyambu | Software & AI/ML Systems Engineer">
+  <meta property="og:description" content="High-craft portfolio of Simon Munyambu: Systems, AI/ML, and low-latency distributed architectures.">
+  
+  <!-- Typography (Geist & Geist Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Aurora & Celestial Lion Constellation Canvas -->
+  <div class="ambient-aurora"></div>
+  <canvas id="constellationCanvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#hero" class="nav-brand">
+      <div class="brand-monogram">SM</div>
+      <div class="brand-text">
+        <span>Simon Munyambu</span>
+        <span class="brand-badge">NBO · EAT</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#terminal" class="nav-link">Terminal</a></li>
+      <li><a href="#architecture" class="nav-link">Architecture</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="cmdk-btn" onclick="openCmdk()" aria-label="Open command palette">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span>Search</span>
+        <span class="kbd-shortcut">⌘K</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="main-wrapper">
+
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-status-pill">
+        <span class="status-dot"></span>
+        <span>Available for High-Impact Systems & AI Roles</span>
+      </div>
+
+      <h1 class="hero-title">
+        Engineering resilient <span class="hero-gradient-text">low-level systems</span> & autonomous <span class="hero-gradient-text">AI architectures</span>.
+      </h1>
+
+      <p class="hero-bio">
+        I am <strong>Simon Munyambu</strong>, a Software & AI/ML Systems Engineer based in Nairobi, Kenya.
+        I bridge the gap between <strong>bare-metal POSIX efficiency</strong> and <strong>state-of-the-art transformer inference</strong>.
+        I build deterministic software with zero runtime slop, verifiable exit-code-0 proofs, and high-craft interfaces.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#projects" class="btn-primary">
+          <span>Explore Projects</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#terminal" class="btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+          <span>Launch Interactive Terminal</span>
+        </a>
+        <a href="https://github.com/mtembez" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <span>GitHub Profile</span>
+        </a>
+      </div>
+
+      <!-- Quick Telemetry Strip -->
+      <div class="hero-metrics-strip">
+        <div class="metric-col">
+          <div class="metric-val">&lt; 0.2ms</div>
+          <div class="metric-label">p99 Event Loop Latency</div>
+        </div>
+        <div class="metric-col">
+          <div class="metric-val">100%</div>
+          <div class="metric-label">Deterministic Unit Coverage</div>
+        </div>
+        <div class="metric-col">
+          <div class="metric-val">0-Bloat</div>
+          <div class="metric-label">Zero Premature Abstraction</div>
+        </div>
+        <div class="metric-col">
+          <div class="metric-val">Nairobi</div>
+          <div class="metric-label">East Africa Time (UTC+3)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SKILLS MATRIX SECTION (BENTO GRID) -->
+    <section id="skills">
+      <div class="section-header">
+        <div class="section-eyebrow">Skills Matrix & Core Capabilities</div>
+        <h2 class="section-title">Deep Technical Expertise Across the Stack</h2>
+        <p class="section-subtitle">Categorized from raw hardware syscalls to neural network model inference and ergonomic interfaces.</p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="skills-filter-bar">
+        <button class="filter-pill active" onclick="filterSkills('all')">All Domains</button>
+        <button class="filter-pill" onclick="filterSkills('systems')">Systems & Kernel</button>
+        <button class="filter-pill" onclick="filterSkills('ai')">AI / Machine Learning</button>
+        <button class="filter-pill" onclick="filterSkills('cloud')">Distributed & Cloud</button>
+        <button class="filter-pill" onclick="filterSkills('frontend')">Frontend & Design</button>
+      </div>
+
+      <div class="skills-bento-grid">
+        <!-- 1. Systems & Kernel -->
+        <div class="bento-card" data-domain="systems">
+          <div>
+            <div class="card-icon-header">
+              <div class="card-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+              </div>
+              <span class="card-domain-tag">Low-Level</span>
+            </div>
+            <h3 class="card-title">Systems & Kernel Engineering</h3>
+            <p class="card-description">
+              Direct interaction with POSIX APIs, epoll/io_uring event loops, memory-mapped shared regions, eBPF tracing, and cache-conscious data structures.
+            </p>
+          </div>
+          <div class="skill-tags-cloud">
+            <span class="skill-badge">C/C++</span>
+            <span class="skill-badge">Rust</span>
+            <span class="skill-badge">Linux Kernel</span>
+            <span class="skill-badge">POSIX</span>
+            <span class="skill-badge">eBPF</span>
+            <span class="skill-badge">Memory Management</span>
+            <span class="skill-badge">Multithreading</span>
+          </div>
+        </div>
+
+        <!-- 2. AI & Machine Learning -->
+        <div class="bento-card" data-domain="ai">
+          <div>
+            <div class="card-icon-header">
+              <div class="card-icon-badge" style="color: var(--purple)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+              </div>
+              <span class="card-domain-tag">Intelligence</span>
+            </div>
+            <h3 class="card-title">AI / Machine Learning</h3>
+            <p class="card-description">
+              Production LLM deployments, transformer attention optimization, TensorRT/vLLM batch serving, quantized weight execution, and vector embeddings.
+            </p>
+          </div>
+          <div class="skill-tags-cloud">
+            <span class="skill-badge">PyTorch</span>
+            <span class="skill-badge">CUDA</span>
+            <span class="skill-badge">TensorRT</span>
+            <span class="skill-badge">vLLM</span>
+            <span class="skill-badge">RAG Pipelines</span>
+            <span class="skill-badge">Transformers</span>
+            <span class="skill-badge">Vector DBs</span>
+          </div>
+        </div>
+
+        <!-- 3. Distributed & Backend -->
+        <div class="bento-card" data-domain="cloud">
+          <div>
+            <div class="card-icon-header">
+              <div class="card-icon-badge" style="color: var(--emerald)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+              </div>
+              <span class="card-domain-tag">Distributed</span>
+            </div>
+            <h3 class="card-title">Distributed Systems & Backend</h3>
+            <p class="card-description">
+              High-throughput asynchronous web engines, Write-Ahead Logging (WAL) concurrency, gRPC protocols, deterministic message queues, and microservices.
+            </p>
+          </div>
+          <div class="skill-tags-cloud">
+            <span class="skill-badge">Go</span>
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">AsyncIO</span>
+            <span class="skill-badge">SQLite WAL</span>
+            <span class="skill-badge">PostgreSQL</span>
+            <span class="skill-badge">Docker</span>
+            <span class="skill-badge">gRPC & REST</span>
+          </div>
+        </div>
+
+        <!-- 4. Frontend & Design Engineering -->
+        <div class="bento-card" data-domain="frontend">
+          <div>
+            <div class="card-icon-header">
+              <div class="card-icon-badge" style="color: var(--amber)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              </div>
+              <span class="card-domain-tag">Craft</span>
+            </div>
+            <h3 class="card-title">Frontend & Design Engineering</h3>
+            <p class="card-description">
+              Anti-slop design token execution, Emil Kowalski micro-interactions, responsive CSS grids, command palette architecture, and WCAG AA accessibility.
+            </p>
+          </div>
+          <div class="skill-tags-cloud">
+            <span class="skill-badge">TypeScript</span>
+            <span class="skill-badge">Tailwind Tokens</span>
+            <span class="skill-badge">Shadcn / Tremor</span>
+            <span class="skill-badge">Canvas / WebGL</span>
+            <span class="skill-badge">Micro-interactions</span>
+            <span class="skill-badge">Keyboard UX</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. INTERACTIVE TERMINAL SECTION -->
+    <section id="terminal">
+      <div class="section-header">
+        <div class="section-eyebrow">Embedded Systems Shell</div>
+        <h2 class="section-title">Interactive Terminal Emulator</h2>
+        <p class="section-subtitle">Probe Simon's environment, inspect system benchmarks, and query project telemetry directly from the web.</p>
+      </div>
+
+      <div class="terminal-container" id="terminalWindow">
+        <div class="terminal-header">
+          <div class="term-dots">
+            <span class="term-dot red"></span>
+            <span class="term-dot yellow"></span>
+            <span class="term-dot green"></span>
+          </div>
+          <div class="term-title">simon@munyambu-systems: ~ (bash/posix)</div>
+          <div class="term-controls">Type <strong>help</strong> or <strong>neofetch</strong></div>
+        </div>
+        <div class="terminal-body" id="termBody">
+          <div class="term-line">
+            <span class="term-highlight">Simon Munyambu Systems Shell [Version 2.4.0-release]</span>
+          </div>
+          <div class="term-line">Type <span class="term-prompt">help</span> to view available diagnostics or <span class="term-prompt">skills</span> to probe proficiency matrices.</div>
+          <div id="termOutput"></div>
+          <div class="term-input-row">
+            <span class="term-prompt">simon@munyambu:~$</span>
+            <input type="text" id="termInput" class="term-input-field" autocomplete="off" spellcheck="false" autofocus placeholder="Type a command...">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FEATURED PROJECTS SECTION -->
+    <section id="projects">
+      <div class="section-header">
+        <div class="section-eyebrow">Production Systems & Prototypes</div>
+        <h2 class="section-title">Engineered For Determinism & Scale</h2>
+        <p class="section-subtitle">Real-world projects built with rigorous verification, zero-bloat architecture, and systems precision.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Applications Console -->
+        <div class="project-card">
+          <div>
+            <div class="project-top-row">
+              <span class="project-type-pill">Live Production · Full Stack</span>
+              <div class="project-links">
+                <a href="https://github.com/mtembez/applications-tracker" target="_blank" rel="noopener noreferrer" class="icon-btn" title="GitHub Repository">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://mtembez.github.io/applications-tracker/" target="_blank" rel="noopener noreferrer" class="icon-btn" title="Live Site">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-name">Applications Tracker & Console</h3>
+            <p class="project-summary">
+              A high-precision career telemetry engine with dual surfaces: a terminal-native Rich CLI and an elite Starlette ASGI multicolor dashboard featuring celestial lion constellation artwork, SQLite WAL persistence, and GitHub Pages fallback.
+            </p>
+            <div class="project-metrics-callout">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              <span>39 Automated Tests · Python 3.11-3.13 Matrix · SQLite WAL Journaling</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <div class="project-tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQLite WAL</span>
+              <span class="tech-tag">Starlette ASGI</span>
+              <span class="tech-tag">Rich CLI</span>
+            </div>
+            <button class="btn-arch-drawer" onclick="openDrawer('apptracker')">
+              <span>Inspect Architecture</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 2: Distributed Neural Inference Engine -->
+        <div class="project-card">
+          <div>
+            <div class="project-top-row">
+              <span class="project-type-pill" style="color: var(--purple); border-color: rgba(192, 132, 252, 0.3)">AI Systems · Low Latency</span>
+              <div class="project-links">
+                <a href="https://github.com/mtembez" target="_blank" rel="noopener noreferrer" class="icon-btn" title="GitHub">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-name">Neuro-Dispatch Inference Engine</h3>
+            <p class="project-summary">
+              Distributed token batching and dynamic quantization runtime for transformer attention heads. Written in C++20 with CUDA kernels and a Rust orchestration daemon to saturate GPU tensor cores without scheduling jitter.
+            </p>
+            <div class="project-metrics-callout">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              <span>4.2x Throughput Gain · FP8 Quantization · Zero Memory Copies</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <div class="project-tech-stack">
+              <span class="tech-tag">C++20</span>
+              <span class="tech-tag">CUDA</span>
+              <span class="tech-tag">Rust</span>
+              <span class="tech-tag">PyTorch</span>
+            </div>
+            <button class="btn-arch-drawer" onclick="openDrawer('neuro')">
+              <span>Inspect Architecture</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 3: Async Network Ring Buffer -->
+        <div class="project-card">
+          <div>
+            <div class="project-top-row">
+              <span class="project-type-pill" style="color: var(--emerald); border-color: rgba(16, 185, 129, 0.3)">Kernel & Network</span>
+              <div class="project-links">
+                <a href="https://github.com/mtembez" target="_blank" rel="noopener noreferrer" class="icon-btn" title="GitHub">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-name">Packet-Forge Network Engine</h3>
+            <p class="project-summary">
+              High-frequency socket multiplexer utilizing Linux epoll and modern io_uring ring buffers. Delivers zero-copy TCP packet decoding and lock-free thread queues for low-latency financial and telemetry transport.
+            </p>
+            <div class="project-metrics-callout">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              <span>1.8M pkts/sec · &lt; 140ns Ring Transit · Lock-Free Ring Queues</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <div class="project-tech-stack">
+              <span class="tech-tag">Rust</span>
+              <span class="tech-tag">io_uring</span>
+              <span class="tech-tag">epoll</span>
+              <span class="tech-tag">POSIX</span>
+            </div>
+            <button class="btn-arch-drawer" onclick="openDrawer('packet')">
+              <span>Inspect Architecture</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 4: Autonomous STEM Evaluation Framework -->
+        <div class="project-card">
+          <div>
+            <div class="project-top-row">
+              <span class="project-type-pill" style="color: var(--amber); border-color: rgba(245, 158, 11, 0.3)">AI Research & Benchmarks</span>
+              <div class="project-links">
+                <a href="https://github.com/mtembez" target="_blank" rel="noopener noreferrer" class="icon-btn" title="GitHub">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-name">STEM-Eval Benchmark Suite</h3>
+            <p class="project-summary">
+              Multimodal verification harness that synthesizes and audits scientific assay ground truths (Spectroscopy, Western Blots, Gel Electrophoresis) to evaluate reasoning performance of frontier LLM models.
+            </p>
+            <div class="project-metrics-callout">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              <span>99.8% Ground Truth Precision · Synthetic Assay Engine · Zero Hallucinations</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <div class="project-tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">NumPy</span>
+            </div>
+            <button class="btn-arch-drawer" onclick="openDrawer('stem')">
+              <span>Inspect Architecture</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ENGINEERING PHILOSOPHY SECTION -->
+    <section id="architecture">
+      <div class="section-header">
+        <div class="section-eyebrow">The Engineering Doctrine</div>
+        <h2 class="section-title">First-Principles Systems Philosophy</h2>
+        <p class="section-subtitle">Code that runs in production must adhere to four immutable invariants.</p>
+      </div>
+
+      <div class="philosophy-grid">
+        <div class="doctrine-card">
+          <div class="doctrine-num">01 / ADVERSARIAL PRE-MORTEM</div>
+          <h3 class="doctrine-heading">Critique Before Commit</h3>
+          <p class="doctrine-body">
+            Anticipate edge-case failures, thread starvation, socket exhaustion, and lock contention before writing a line of code. Never assume happy-path execution.
+          </p>
+        </div>
+        <div class="doctrine-card">
+          <div class="doctrine-num">02 / EMPIRICAL PROOF</div>
+          <h3 class="doctrine-heading">Deterministic Exit Code 0</h3>
+          <p class="doctrine-body">
+            A feature is unfinished until proven by automated unit suites, compiler diagnostics, and benchmark sweeps. Static verification precedes deployment.
+          </p>
+        </div>
+        <div class="doctrine-card">
+          <div class="doctrine-num">03 / ZERO RUNTIME BLOAT</div>
+          <h3 class="doctrine-heading">Only As I Need It</h3>
+          <p class="doctrine-body">
+            Reject premature abstractions, dependency-heavy ORMs, and unnecessary micro-frameworks. Keep binaries lean, cache lines hot, and memory maps direct.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. EXPERIENCE & TIMELINE SECTION -->
+    <section id="experience">
+      <div class="section-header">
+        <div class="section-eyebrow">Career Milestones</div>
+        <h2 class="section-title">Experience & Systems Impact</h2>
+        <p class="section-subtitle">A track record of shipping performant software and machine learning infrastructure.</p>
+      </div>
+
+      <div class="timeline-stream">
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2024 — PRESENT</div>
+          <h3 class="timeline-role">Lead Systems & AI/ML Engineer</h3>
+          <div class="timeline-org">Autonomous Engineering & Frontier Systems · Nairobi, Kenya</div>
+          <p class="timeline-notes">
+            Architecting low-latency model inference runtimes, distributed batch workers, and real-time telemetry consoles. Developing zero-bloat CLI tools and Starlette ASGI web backends with SQLite WAL persistence.
+          </p>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2022 — 2024</div>
+          <h3 class="timeline-role">Software Engineer (Backend & Infrastructure)</h3>
+          <div class="timeline-org">Distributed Cloud Systems</div>
+          <p class="timeline-notes">
+            Built scalable asynchronous microservices in Go and Python. Implemented POSIX socket handling, database migrations, CI/CD testing pipelines, and Dockerized edge deployments.
+          </p>
+        </div>
+
+        <div class="timeline-node">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2020 — 2022</div>
+          <h3 class="timeline-role">Systems & Algorithms Developer</h3>
+          <div class="timeline-org">High-Performance Computing Research</div>
+          <p class="timeline-notes">
+            Developed C/C++ memory-conscious algorithms, multithreaded simulations, and data processing routines. Focused on CPU cache locality and zero-allocation data structures.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CONTACT SECTION -->
+    <section id="contact">
+      <div class="section-header">
+        <div class="section-eyebrow">Get In Touch</div>
+        <h2 class="section-title">Initiate Collaboration</h2>
+        <p class="section-subtitle">Looking for an engineer who excels at low-level performance, AI systems, and disciplined design? Let's connect.</p>
+      </div>
+
+      <div class="contact-grid">
+        <a href="mailto:simonmunyambu@gmail.com" class="contact-card">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <div>
+            <div style="font-weight: 700;">Direct Email</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">simonmunyambu@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/mtembez" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </div>
+          <div>
+            <div style="font-weight: 700;">GitHub Repositories</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">github.com/mtembez</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>
+        <span>© 2026 Simon Munyambu · Nairobi, Kenya. All rights reserved.</span>
+      </div>
+      <div>
+        <span>Pride of Kenya · Systems Engine v2.4</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Slide-Over Architecture Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+  <aside class="slide-drawer" id="archDrawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title" id="drawerTitle">Architecture Deep-Dive</h3>
+      <button class="drawer-close-btn" onclick="closeDrawer()" aria-label="Close drawer">✕</button>
+    </div>
+    <div class="drawer-content" id="drawerContent">
+      <!-- Injected dynamically via app.js -->
+    </div>
+  </aside>
+
+  <!-- Command Palette Modal (cmdk) -->
+  <div class="cmdk-overlay" id="cmdkModal" onclick="handleCmdkBackdrop(event)">
+    <div class="cmdk-dialog" onclick="event.stopPropagation()">
+      <div class="cmdk-search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="cmdkInput" class="cmdk-input" placeholder="Type a command or jump to section..." oninput="filterCmdk()">
+        <span class="kbd-shortcut">ESC</span>
+      </div>
+      <ul class="cmdk-results-list" id="cmdkList">
+        <!-- Rendered via JS -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- JavaScript Core -->
+  <script src="app.js"></script>
+</body>
+</html>
