@@ -152,6 +152,14 @@ class TestPortfolioWebsite(unittest.TestCase):
         self.assertIn("@media (max-width: 768px)", self.css)
         self.assertIn("@media (max-width: 480px)", self.css)
 
+    def test_mobile_priority_and_relevance_ordering(self):
+        """Verify mobile reordering prioritizes projects, skills, and contact above terminal."""
+        self.assertIn("#projects { order:", self.css)
+        self.assertIn("#skills { order:", self.css)
+        self.assertIn("#contact { order:", self.css)
+        self.assertIn("#terminal { order:", self.css)
+        self.assertIn(".consult-form-card { order: 1", self.css)
+
     def test_js_terminal_commands_registry(self):
         """Verify JavaScript implements essential shell commands."""
         expected_commands = ["help", "skills", "projects", "bio", "bench", "contact", "clear"]

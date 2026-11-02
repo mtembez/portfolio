@@ -1485,20 +1485,77 @@ section {
 }
 
 @media (max-width: 768px) {
-  .navbar { padding: 0.75rem 1.25rem; }
+  /* Mobile Layout Hierarchy & Priority Reordering */
+  .main-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem 3.5rem;
+  }
+
+  /* Visual Hierarchy: Hero -> Proof-of-Work (Projects) -> Skills Matrix -> Direct Hire/Contact -> Experience -> Philosophy -> Interactive CLI */
+  #hero { order: 1; }
+  #projects { order: 2; }
+  #skills { order: 3; }
+  #contact { order: 4; }
+  #experience { order: 5; }
+  #architecture { order: 6; }
+  #terminal { order: 7; }
+  .footer { order: 8; margin-top: 3.5rem; }
+
+  /* Priority within Contact: Immediate Action Form First, Explanatory Details Second */
+  .consultation-layout {
+    display: flex;
+    flex-direction: column;
+  }
+  .consult-form-card { order: 1; }
+  .consultation-info-col { order: 2; margin-top: 1.5rem; }
+
+  /* Compact 3D Holographic Portrait Frame for Mobile */
+  .portrait-card-wrapper {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .hero-portrait-img {
+    height: 320px;
+  }
+  .portrait-floating-badge {
+    font-size: 0.68rem;
+    padding: 0.35rem 0.65rem;
+  }
+  .badge-top-right {
+    right: 0.5rem;
+    top: 0.75rem;
+  }
+  .badge-bottom-left {
+    left: 0.5rem;
+    bottom: 3.8rem;
+  }
+
+  /* Touch Ergonomics & Clean Spacing */
+  .navbar { padding: 0.75rem 1rem; }
   .nav-links { display: none; }
-  .hero-title { font-size: 2.3rem; }
+  .hero-title { font-size: 2.2rem; }
   .telemetry-node-strip { grid-template-columns: 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .slide-drawer { max-width: 100%; }
-  .badge-top-right { right: 0; }
-  .badge-bottom-left { left: 0; }
+
+  /* Touch Targets (min 44px height for interactive elements) */
+  .btn-primary, .btn-secondary, .btn-copy-email, .form-input, .form-select, .sfx-toggle-btn, .cmdk-btn {
+    min-height: 44px;
+  }
 }
 
 @media (max-width: 480px) {
-  .hero-title { font-size: 1.9rem; }
+  .hero-title { font-size: 1.85rem; }
   .telemetry-node-strip { grid-template-columns: 1fr; }
   .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-  .hero-cta-group { width: 100%; }
+  .hero-cta-group { width: 100%; flex-direction: column; }
+  .portrait-card-wrapper { max-width: 250px; }
+  .hero-portrait-img { height: 290px; }
+  .badge-top-right { right: 0.25rem; font-size: 0.62rem; }
+  .badge-bottom-left { left: 0.25rem; font-size: 0.62rem; }
+  .card-header-actions { flex-wrap: wrap; }
+  .terminal-body { max-height: 340px; font-size: 0.78rem; padding: 1rem; }
+  .nav-actions .cmdk-btn .kbd-shortcut { display: none; }
 }
