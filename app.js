@@ -1,11 +1,14 @@
 /**
  * Simon Munyambu Portfolio - Core Engine
- * Incorporates:
+ * Creative Components:
  * - Celestial Lion Constellation Particle Mesh (Canvas)
+ * - 3D Perspective Card Tilt on Simon's Portrait Card
+ * - Aceternity Spotlight Cursor Tracking
+ * - Web Audio API Synthesizer (Tactile Click SFX)
+ * - Real-Time Nairobi Telemetry Clock (EAT · UTC+3)
  * - Interactive Systems Terminal Emulator (POSIX shell)
  * - Paco Coursey cmdk Command Palette
  * - Slide-Over Architecture Drawer
- * - Filterable Skills Bento Grid
  */
 
 /* ==========================================================================
@@ -77,11 +80,11 @@ function drawCanvas() {
 
   // 1. Draw Celestial Lion Constellation in background
   ctx.save();
-  const lionCenterX = width * 0.78;
-  const lionCenterY = height * 0.38;
-  const lionScale = Math.min(width, height) * 0.45;
+  const lionCenterX = width > 1024 ? width * 0.72 : width * 0.5;
+  const lionCenterY = width > 1024 ? height * 0.32 : height * 0.2;
+  const lionScale = Math.min(width, height) * 0.42;
 
-  ctx.strokeStyle = 'rgba(56, 189, 248, 0.18)';
+  ctx.strokeStyle = 'rgba(56, 189, 248, 0.2)';
   ctx.lineWidth = 1;
 
   // Draw lion bone lines
@@ -104,15 +107,15 @@ function drawCanvas() {
     const x = lionCenterX + (node.x - 0.5) * lionScale;
     const y = lionCenterY + (node.y - 0.38) * lionScale;
 
-    ctx.fillStyle = idx === 0 || idx === 7 ? 'rgba(56, 189, 248, 0.8)' : 'rgba(129, 140, 248, 0.6)';
+    ctx.fillStyle = idx === 0 || idx === 7 ? 'rgba(56, 189, 248, 0.9)' : 'rgba(129, 140, 248, 0.7)';
     ctx.beginPath();
-    ctx.arc(x, y, idx === 0 || idx === 7 ? 2.5 : 1.8, 0, Math.PI * 2);
+    ctx.arc(x, y, idx === 0 || idx === 7 ? 2.8 : 2.0, 0, Math.PI * 2);
     ctx.fill();
 
     // Subtle star halo
-    ctx.fillStyle = 'rgba(56, 189, 248, 0.12)';
+    ctx.fillStyle = 'rgba(56, 189, 248, 0.15)';
     ctx.beginPath();
-    ctx.arc(x, y, 6, 0, Math.PI * 2);
+    ctx.arc(x, y, 7, 0, Math.PI * 2);
     ctx.fill();
   });
   ctx.restore();
@@ -151,7 +154,7 @@ function drawCanvas() {
       const dy = particles[i].y - particles[j].y;
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < connectionDistance) {
-        const opacity = (1 - dist / connectionDistance) * 0.12;
+        const opacity = (1 - dist / connectionDistance) * 0.14;
         ctx.strokeStyle = `rgba(129, 140, 248, ${opacity})`;
         ctx.lineWidth = 0.8;
         ctx.beginPath();
@@ -170,7 +173,153 @@ drawCanvas();
 
 
 /* ==========================================================================
-   2. Interactive Systems Terminal Emulator
+   2. 3D Perspective Card Tilt on Simon's Portrait Card
+   ========================================================================= */
+const portraitCard = document.getElementById('portraitCard');
+if (portraitCard) {
+  portraitCard.addEventListener('mousemove', (e) => {
+    const rect = portraitCard.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -10;
+    const rotateY = ((x - centerX) / centerX) * 10;
+
+    portraitCard.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+  });
+
+  portraitCard.addEventListener('mouseleave', () => {
+    portraitCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+  });
+}
+
+
+/* ==========================================================================
+   3. Aceternity Spotlight Tracking on Bento & Project Cards
+   ========================================================================== */
+document.querySelectorAll('.spotlight-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  });
+});
+
+
+/* ==========================================================================
+   4. Web Audio Synthesizer (Tactile Click SFX)
+   ========================================================================== */
+let audioCtx = null;
+let sfxEnabled = true;
+
+function initAudio() {
+  if (!audioCtx && typeof (window.AudioContext || window.webkitAudioContext) !== 'undefined') {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    audioCtx = new AudioContextClass();
+  }
+}
+
+function playClickSound() {
+  if (!sfxEnabled) return;
+  initAudio();
+  if (!audioCtx) return;
+
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+
+  try {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.02);
+
+    gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.02);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.02);
+  } catch (err) {
+    // Silent fallback
+  }
+}
+
+function playKeySound() {
+  if (!sfxEnabled) return;
+  initAudio();
+  if (!audioCtx) return;
+
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+
+  try {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(450 + Math.random() * 80, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.015);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.015);
+  } catch (err) {
+    // Silent fallback
+  }
+}
+
+function toggleSFX() {
+  sfxEnabled = !sfxEnabled;
+  const btn = document.getElementById('sfxToggle');
+  if (btn) {
+    btn.innerHTML = sfxEnabled ? '<span>🔊</span><span>SFX ON</span>' : '<span>🔈</span><span>SFX OFF</span>';
+  }
+  if (sfxEnabled) playClickSound();
+}
+
+
+/* ==========================================================================
+   5. Real-Time Nairobi Telemetry Clock
+   ========================================================================== */
+function updateNairobiClock() {
+  const clockEl = document.getElementById('nairobiClock');
+  if (!clockEl) return;
+
+  try {
+    const now = new Date();
+    const options = {
+      timeZone: 'Africa/Nairobi',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    };
+    clockEl.textContent = new Intl.DateTimeFormat('en-US', options).format(now);
+  } catch (err) {
+    clockEl.textContent = new Date().toLocaleTimeString();
+  }
+}
+
+setInterval(updateNairobiClock, 1000);
+updateNairobiClock();
+
+
+/* ==========================================================================
+   6. Interactive Systems Terminal Emulator
    ========================================================================== */
 const termInput = document.getElementById('termInput');
 const termOutput = document.getElementById('termOutput');
@@ -266,6 +415,8 @@ Direct Communication:
 };
 
 termInput.addEventListener('keydown', (e) => {
+  playKeySound();
+
   if (e.key === 'Enter') {
     const rawCmd = termInput.value.trim();
     if (!rawCmd) return;
@@ -315,7 +466,7 @@ termInput.addEventListener('keydown', (e) => {
 
 
 /* ==========================================================================
-   3. Skills Filter Switcher
+   7. Skills Filter Switcher
    ========================================================================== */
 function filterSkills(domain) {
   const cards = document.querySelectorAll('.bento-card');
@@ -341,7 +492,7 @@ function filterSkills(domain) {
 
 
 /* ==========================================================================
-   4. Slide-Over Architecture Drawer
+   8. Slide-Over Architecture Drawer
    ========================================================================== */
 const ARCH_DATA = {
   'apptracker': {
@@ -469,7 +620,7 @@ function closeDrawer() {
 
 
 /* ==========================================================================
-   5. Command Palette (cmdk) Engine
+   9. Command Palette (cmdk) Engine
    ========================================================================== */
 const CMDK_ITEMS = [
   { label: 'Jump to Hero', shortcut: '#hero', action: () => scrollToSection('hero') },
@@ -481,10 +632,12 @@ const CMDK_ITEMS = [
   { label: 'Contact Simon Munyambu', shortcut: '#contact', action: () => scrollToSection('contact') },
   { label: 'Open GitHub Profile (@mtembez)', shortcut: 'External', action: () => window.open('https://github.com/mtembez', '_blank') },
   { label: 'Open Live Applications Tracker', shortcut: 'Production', action: () => window.open('https://mtembez.github.io/applications-tracker/', '_blank') },
+  { label: 'Toggle SFX Sound Engine', shortcut: 'Audio', action: () => toggleSFX() },
   { label: 'Run Neofetch Diagnostic', shortcut: 'Terminal', action: () => { scrollToSection('terminal'); termInput.value = 'neofetch'; termInput.dispatchEvent(new KeyboardEvent('keydown', {'key':'Enter'})); } }
 ];
 
 function openCmdk() {
+  playClickSound();
   document.getElementById('cmdkModal').style.display = 'flex';
   document.getElementById('cmdkInput').value = '';
   filterCmdk();
@@ -526,6 +679,7 @@ function filterCmdk() {
     `;
     li.onclick = () => {
       closeCmdk();
+      playClickSound();
       item.action();
     };
     list.appendChild(li);
@@ -539,7 +693,7 @@ function scrollToSection(id) {
 
 
 /* ==========================================================================
-   6. Global Keyboard Shortcuts
+   10. Global Keyboard Shortcuts
    ========================================================================== */
 window.addEventListener('keydown', (e) => {
   // Cmd+K or Ctrl+K

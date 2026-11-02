@@ -1,7 +1,7 @@
 """
 Comprehensive Test Suite for Simon Munyambu's Portfolio Website.
 Verifies DOM structure, WCAG accessibility invariants, command palette contracts,
-terminal emulator command registry, and CSS design tokens.
+terminal emulator command registry, photo asset integration, audio engine, and CSS design tokens.
 """
 
 import os
@@ -12,6 +12,7 @@ PORTFOLIO_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 HTML_PATH = os.path.join(PORTFOLIO_DIR, "index.html")
 CSS_PATH = os.path.join(PORTFOLIO_DIR, "styles.css")
 JS_PATH = os.path.join(PORTFOLIO_DIR, "app.js")
+IMG_PATH = os.path.join(PORTFOLIO_DIR, "assets", "simon-munyambu.png")
 
 
 class TestPortfolioWebsite(unittest.TestCase):
@@ -23,6 +24,20 @@ class TestPortfolioWebsite(unittest.TestCase):
             cls.css = f.read()
         with open(JS_PATH, "r", encoding="utf-8") as f:
             cls.js = f.read()
+
+    def test_portrait_photo_asset_exists_and_integrated(self):
+        """Verify the user's authentic photo asset exists and is embedded in DOM with accessible alt text."""
+        self.assertTrue(os.path.isfile(IMG_PATH), f"Photo file not found at {IMG_PATH}")
+        self.assertGreater(os.path.getsize(IMG_PATH), 100000, "Photo asset is unexpectedly small")
+        self.assertIn('assets/simon-munyambu.png', self.html, "Photo asset not referenced in index.html")
+        self.assertIn('alt="Simon Munyambu', self.html, "Accessible alt text missing on portrait image")
+
+    def test_hero_creative_layout_and_portrait_card(self):
+        """Verify creative portrait showcase container and floating telemetry badges."""
+        self.assertIn('class="portrait-card-wrapper"', self.html)
+        self.assertIn('class="portrait-floating-badge', self.html)
+        self.assertIn('id="nairobiClock"', self.html, "Live Nairobi EAT clock element missing")
+        self.assertIn('id="sfxToggle"', self.html, "Tactile SFX toggle button missing")
 
     def test_html_structure_and_doctype(self):
         """Verify strict HTML5 doctype, language, and viewport metadata."""
@@ -111,6 +126,12 @@ class TestPortfolioWebsite(unittest.TestCase):
         self.assertIn("--indigo: #818cf8", self.css)
         self.assertIn("cubic-bezier(0.16, 1, 0.3, 1)", self.css)
 
+    def test_css_creative_animations(self):
+        """Verify creative animations: border beam, spotlight tracking, card tilt."""
+        self.assertIn("border-beam", self.css)
+        self.assertIn("spotlight", self.css)
+        self.assertIn("conic-gradient", self.css)
+
     def test_responsive_media_queries(self):
         """Verify responsive breakpoints down to mobile (768px and 480px)."""
         self.assertIn("@media (max-width: 1024px)", self.css)
@@ -123,6 +144,12 @@ class TestPortfolioWebsite(unittest.TestCase):
         for cmd in expected_commands:
             with self.subTest(command=cmd):
                 self.assertIn(f"'{cmd}'", self.js, f"Command '{cmd}' not registered in terminal commands")
+
+    def test_js_audio_and_telemetry_engine(self):
+        """Verify Web Audio API sound synthesizer and real-time clock updates in JS."""
+        self.assertIn("AudioContext", self.js)
+        self.assertIn("playClickSound", self.js)
+        self.assertIn("nairobiClock", self.js)
 
     def test_js_keyboard_shortcuts(self):
         """Verify Cmd+K / Ctrl+K and Escape listeners in JS."""

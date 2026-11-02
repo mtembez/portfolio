@@ -1,6 +1,6 @@
 /* ==========================================================================
    SIMON MUNYAMBU | SYSTEMS & AI/ML PORTFOLIO
-   Design Tokens & CSS Architecture (Zinc-950 / Tailwind / Magic UI / Tremor)
+   Design Tokens & Creative CSS Architecture (Zinc-950 / Magic UI / Aceternity)
    ========================================================================== */
 
 :root {
@@ -9,21 +9,21 @@
   --card-bg: #121215;
   --card-hover: #18181c;
   --border-subtle: #27272a;
-  --border-highlight: rgba(255, 255, 255, 0.12);
-  --border-glow: rgba(56, 189, 248, 0.3);
+  --border-highlight: rgba(255, 255, 255, 0.14);
+  --border-glow: rgba(56, 189, 248, 0.35);
 
   --text-main: #fafafa;
   --text-muted: #a1a1aa;
   --text-dim: #71717a;
 
   --sky: #38bdf8;
-  --sky-glow: rgba(56, 189, 248, 0.15);
+  --sky-glow: rgba(56, 189, 248, 0.2);
   --indigo: #818cf8;
-  --indigo-glow: rgba(129, 140, 248, 0.15);
+  --indigo-glow: rgba(129, 140, 248, 0.2);
   --emerald: #10b981;
-  --emerald-glow: rgba(16, 185, 129, 0.15);
+  --emerald-glow: rgba(16, 185, 129, 0.2);
   --amber: #f59e0b;
-  --amber-glow: rgba(245, 158, 11, 0.15);
+  --amber-glow: rgba(245, 158, 11, 0.2);
   --purple: #c084fc;
   --rose: #f43f5e;
 
@@ -76,10 +76,10 @@ body {
   top: -15vw;
   left: 50%;
   transform: translateX(-50%);
-  width: 80vw;
-  height: 45vw;
-  background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.08), rgba(129, 140, 248, 0.06), rgba(192, 132, 252, 0.04), transparent 70%);
-  filter: blur(80px);
+  width: 85vw;
+  height: 50vw;
+  background: radial-gradient(circle at 50% 40%, rgba(56, 189, 248, 0.12), rgba(129, 140, 248, 0.08), rgba(192, 132, 252, 0.06), transparent 70%);
+  filter: blur(90px);
   z-index: 0;
   pointer-events: none;
 }
@@ -95,7 +95,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.875rem 2rem;
-  background: rgba(9, 9, 11, 0.8);
+  background: rgba(9, 9, 11, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
@@ -111,18 +111,18 @@ body {
 }
 
 .brand-monogram {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
   background: linear-gradient(135deg, var(--sky), var(--indigo));
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #09090b;
   letter-spacing: -0.05em;
-  box-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
 }
 
 .brand-text {
@@ -131,7 +131,7 @@ body {
   letter-spacing: -0.02em;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .brand-badge {
@@ -170,6 +170,27 @@ body {
   gap: 0.75rem;
 }
 
+.sfx-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: all 0.15s var(--ease-smooth);
+}
+
+.sfx-toggle-btn:hover {
+  background: var(--card-hover);
+  color: var(--text-main);
+  border-color: var(--sky);
+}
+
 .cmdk-btn {
   display: flex;
   align-items: center;
@@ -206,7 +227,7 @@ body {
 .main-wrapper {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 1.5rem 6rem;
 }
@@ -240,7 +261,7 @@ section {
 }
 
 .section-title {
-  font-size: 2.1rem;
+  font-size: 2.2rem;
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--text-main);
@@ -255,14 +276,21 @@ section {
 }
 
 /* --------------------------------------------------------------------------
-   Hero Section
+   Hero Section - Creative Split Layout with Holographic Portrait Card
    -------------------------------------------------------------------------- */
 .hero-section {
-  padding-top: 5rem;
-  padding-bottom: 4rem;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.95fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.hero-content {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 1.5rem;
 }
 
 .hero-status-pill {
@@ -294,23 +322,21 @@ section {
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 3.25rem;
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1.1;
-  max-width: 900px;
 }
 
 .hero-gradient-text {
-  background: linear-gradient(135deg, #fafafa 30%, #38bdf8 70%, #818cf8 100%);
+  background: linear-gradient(135deg, #fafafa 20%, #38bdf8 65%, #818cf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero-bio {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--text-muted);
-  max-width: 750px;
   line-height: 1.7;
 }
 
@@ -322,16 +348,15 @@ section {
 .hero-cta-group {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.85rem;
   flex-wrap: wrap;
-  margin-top: 0.5rem;
 }
 
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.4rem;
+  padding: 0.75rem 1.35rem;
   background: #fafafa;
   color: #09090b;
   border-radius: 8px;
@@ -347,14 +372,14 @@ section {
 .btn-primary:hover {
   transform: translateY(-2px);
   background: #ffffff;
-  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.4rem;
+  padding: 0.75rem 1.35rem;
   background: rgba(24, 24, 27, 0.6);
   color: var(--text-main);
   border-radius: 8px;
@@ -373,34 +398,180 @@ section {
   transform: translateY(-2px);
 }
 
-/* Quick Metrics Row */
-.hero-metrics-strip {
+/* --------------------------------------------------------------------------
+   Holographic 3D Portrait Showcase Card (Magic UI Border-Beam + Tilt)
+   -------------------------------------------------------------------------- */
+.portrait-showcase-container {
+  position: relative;
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+}
+
+.portrait-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 24px;
+  padding: 8px;
+  background: #141418;
+  transform-style: preserve-3d;
+  transition: transform 0.2s var(--ease-spring);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(56, 189, 248, 0.12);
+}
+
+/* Magic UI Rotating Border-Beam */
+.border-beam-effect {
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  padding: 2px;
+  background: conic-gradient(from var(--beam-angle, 0deg), transparent 15%, #38bdf8 35%, #818cf8 50%, #c084fc 65%, transparent 85%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotate-beam 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate-beam {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.portrait-inner-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0d0d10;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-portrait-img {
+  display: block;
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center top;
+  filter: contrast(1.05) brightness(0.98);
+  transition: transform 0.3s var(--ease-smooth);
+}
+
+.portrait-card-wrapper:hover .hero-portrait-img {
+  transform: scale(1.02);
+}
+
+/* Celestial Lion Watermark Overlay */
+.portrait-lion-watermark {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 45%;
+  background: linear-gradient(to top, rgba(9, 9, 11, 0.95) 15%, rgba(9, 9, 11, 0.4) 60%, transparent 100%);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+}
+
+.portrait-identity-tag {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fafafa;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.portrait-sub-tag {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--sky);
+  margin-top: 0.2rem;
+}
+
+/* Floating Glassmorphic Telemetry Badges */
+.portrait-floating-badge {
+  position: absolute;
+  z-index: 20;
+  padding: 0.5rem 0.85rem;
+  border-radius: 12px;
+  background: rgba(18, 18, 22, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #fafafa;
+  transition: transform 0.2s var(--ease-spring);
+}
+
+.portrait-floating-badge:hover {
+  transform: scale(1.05) translateZ(30px);
+  border-color: var(--sky);
+}
+
+.badge-top-right {
+  top: 1.5rem;
+  right: -1.5rem;
+  animation: float-badge 3.5s ease-in-out infinite;
+}
+
+.badge-bottom-left {
+  bottom: 3.5rem;
+  left: -2rem;
+  animation: float-badge 4s ease-in-out infinite reverse;
+}
+
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.badge-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sky);
+  box-shadow: 0 0 10px var(--sky);
+}
+
+/* Real-Time Systems Telemetry Node */
+.telemetry-node-strip {
+  grid-column: span 2;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  margin-top: 2rem;
-  padding: 1.25rem;
-  border-radius: 12px;
-  background: rgba(18, 18, 21, 0.5);
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 14px;
+  background: rgba(18, 18, 22, 0.6);
   border: 1px solid var(--border-subtle);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-.metric-col {
+.telemetry-node-item {
   display: flex;
   flex-direction: column;
 }
 
-.metric-val {
-  font-size: 1.6rem;
+.telemetry-val {
+  font-size: 1.25rem;
   font-weight: 800;
   font-family: var(--font-mono);
-  letter-spacing: -0.03em;
   color: var(--text-main);
+  letter-spacing: -0.02em;
 }
 
-.metric-label {
-  font-size: 0.75rem;
+.telemetry-lbl {
+  font-size: 0.72rem;
   color: var(--text-dim);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -409,7 +580,7 @@ section {
 }
 
 /* --------------------------------------------------------------------------
-   Skills Matrix Section (Bento Grid)
+   Skills Matrix Section (Aceternity Spotlight Cards)
    -------------------------------------------------------------------------- */
 .skills-filter-bar {
   display: flex;
@@ -451,8 +622,8 @@ section {
   position: relative;
   background: var(--card-bg);
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 1.5rem;
+  border-radius: 14px;
+  padding: 1.6rem;
   transition: transform 0.2s var(--ease-spring), border-color 0.2s var(--ease-smooth), box-shadow 0.2s var(--ease-smooth);
   overflow: hidden;
   display: flex;
@@ -460,34 +631,25 @@ section {
   justify-content: space-between;
 }
 
-.bento-card::before {
-  content: "";
+/* Aceternity Spotlight Tracking */
+.spotlight-card::after {
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: transparent;
-  transition: background 0.2s var(--ease-smooth);
+  inset: 0;
+  background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56, 189, 248, 0.08), transparent 60%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.spotlight-card:hover::after {
+  opacity: 1;
 }
 
 .bento-card:hover {
   transform: translateY(-3px);
   border-color: var(--border-highlight);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-}
-
-.bento-card[data-domain="systems"]:hover::before {
-  background: linear-gradient(90deg, var(--sky), var(--indigo));
-}
-.bento-card[data-domain="ai"]:hover::before {
-  background: linear-gradient(90deg, var(--purple), var(--rose));
-}
-.bento-card[data-domain="cloud"]:hover::before {
-  background: linear-gradient(90deg, var(--emerald), var(--sky));
-}
-.bento-card[data-domain="frontend"]:hover::before {
-  background: linear-gradient(90deg, var(--amber), var(--rose));
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5);
 }
 
 .card-icon-header {
@@ -498,9 +660,9 @@ section {
 }
 
 .card-icon-badge {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -518,7 +680,7 @@ section {
 }
 
 .card-title {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-main);
   margin-bottom: 0.5rem;
@@ -541,7 +703,7 @@ section {
 .skill-badge {
   font-size: 0.75rem;
   font-family: var(--font-mono);
-  padding: 0.2rem 0.55rem;
+  padding: 0.25rem 0.6rem;
   border-radius: 6px;
   background: #191920;
   color: #d4d4d8;
@@ -552,16 +714,17 @@ section {
 .skill-badge:hover {
   border-color: var(--sky);
   color: var(--sky);
+  background: rgba(56, 189, 248, 0.08);
 }
 
 /* --------------------------------------------------------------------------
    Interactive Terminal Section
    -------------------------------------------------------------------------- */
 .terminal-container {
-  border-radius: 12px;
+  border-radius: 14px;
   background: #0d0e12;
   border: 1px solid var(--border-subtle);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
   overflow: hidden;
   font-family: var(--font-mono);
 }
@@ -570,19 +733,19 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.6rem 1rem;
+  padding: 0.75rem 1.25rem;
   background: #14151a;
   border-bottom: 1px solid var(--border-subtle);
 }
 
 .term-dots {
   display: flex;
-  gap: 6px;
+  gap: 7px;
 }
 
 .term-dot {
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
 }
 
@@ -591,7 +754,7 @@ section {
 .term-dot.green { background: #10b981; }
 
 .term-title {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-dim);
   letter-spacing: 0.05em;
 }
@@ -602,9 +765,9 @@ section {
 }
 
 .terminal-body {
-  padding: 1.25rem;
-  min-height: 280px;
-  max-height: 420px;
+  padding: 1.5rem;
+  min-height: 300px;
+  max-height: 440px;
   overflow-y: auto;
   font-size: 0.85rem;
   color: #e4e4e7;
@@ -663,7 +826,7 @@ section {
 .project-card {
   background: var(--card-bg);
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 1.75rem;
   display: flex;
   flex-direction: column;
@@ -675,7 +838,7 @@ section {
 .project-card:hover {
   transform: translateY(-4px);
   border-color: var(--sky);
-  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.08);
+  box-shadow: 0 14px 35px rgba(56, 189, 248, 0.1);
 }
 
 .project-top-row {
@@ -688,7 +851,7 @@ section {
 .project-type-pill {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 0.55rem;
   border-radius: 4px;
   background: rgba(56, 189, 248, 0.1);
   color: var(--sky);
@@ -703,7 +866,7 @@ section {
 .icon-btn {
   color: var(--text-muted);
   text-decoration: none;
-  padding: 0.3rem;
+  padding: 0.35rem;
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -717,7 +880,7 @@ section {
 }
 
 .project-name {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text-main);
@@ -762,13 +925,13 @@ section {
 
 .tech-tag {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: var(--text-dim);
 }
 
 .btn-arch-drawer {
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--sky);
   background: transparent;
@@ -781,7 +944,7 @@ section {
 }
 
 .btn-arch-drawer:hover {
-  gap: 0.5rem;
+  gap: 0.55rem;
   color: #7dd3fc;
 }
 
@@ -795,8 +958,8 @@ section {
 }
 
 .doctrine-card {
-  padding: 1.5rem;
-  border-radius: 12px;
+  padding: 1.6rem;
+  border-radius: 14px;
   background: var(--card-bg);
   border: 1px solid var(--border-subtle);
 }
@@ -810,7 +973,7 @@ section {
 }
 
 .doctrine-heading {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-main);
   margin-bottom: 0.5rem;
@@ -882,7 +1045,7 @@ section {
 .drawer-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 200;
@@ -902,7 +1065,7 @@ section {
   right: 0;
   bottom: 0;
   width: 100%;
-  max-width: 600px;
+  max-width: 620px;
   background: #111115;
   border-left: 1px solid var(--border-subtle);
   z-index: 210;
@@ -992,7 +1155,7 @@ section {
   max-width: 580px;
   background: #121216;
   border: 1px solid var(--border-highlight);
-  border-radius: 12px;
+  border-radius: 14px;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
   overflow: hidden;
   animation: cmdk-pop 0.15s var(--ease-spring);
@@ -1063,7 +1226,7 @@ section {
 
 .contact-card {
   padding: 1.25rem;
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--card-bg);
   border: 1px solid var(--border-subtle);
   display: flex;
@@ -1081,9 +1244,9 @@ section {
 }
 
 .contact-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   display: flex;
@@ -1122,24 +1285,41 @@ section {
    Responsive Breakpoints
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
-  .hero-title { font-size: 2.8rem; }
+  .hero-section {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .portrait-showcase-container {
+    order: -1;
+  }
+  .portrait-card-wrapper {
+    max-width: 320px;
+  }
+  .hero-portrait-img {
+    height: 380px;
+  }
+  .telemetry-node-strip {
+    grid-column: span 1;
+    grid-template-columns: repeat(2, 1fr);
+  }
   .projects-grid { grid-template-columns: 1fr; }
   .philosophy-grid { grid-template-columns: 1fr; }
-  .hero-metrics-strip { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
   .navbar { padding: 0.75rem 1.25rem; }
   .nav-links { display: none; }
-  .hero-title { font-size: 2.2rem; }
-  .hero-metrics-strip { grid-template-columns: 1fr 1fr; }
+  .hero-title { font-size: 2.3rem; }
+  .telemetry-node-strip { grid-template-columns: 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .slide-drawer { max-width: 100%; }
+  .badge-top-right { right: 0; }
+  .badge-bottom-left { left: 0; }
 }
 
 @media (max-width: 480px) {
-  .hero-title { font-size: 1.85rem; }
-  .hero-metrics-strip { grid-template-columns: 1fr; }
+  .hero-title { font-size: 1.9rem; }
+  .telemetry-node-strip { grid-template-columns: 1fr; }
   .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
   .hero-cta-group { width: 100%; }
 }

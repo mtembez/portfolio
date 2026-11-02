@@ -48,6 +48,11 @@
     </ul>
 
     <div class="nav-actions">
+      <button class="sfx-toggle-btn" id="sfxToggle" onclick="toggleSFX()" aria-label="Toggle tactile sound effects">
+        <span>🔊</span>
+        <span>SFX ON</span>
+      </button>
+
       <button class="cmdk-btn" onclick="openCmdk()" aria-label="Open command palette">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         <span>Search</span>
@@ -59,60 +64,96 @@
   <!-- Main Container -->
   <main class="main-wrapper">
 
-    <!-- 1. HERO SECTION -->
+    <!-- 1. HERO SECTION - Creative Split with Holographic Portrait Card -->
     <section id="hero" class="hero-section">
-      <div class="hero-status-pill">
-        <span class="status-dot"></span>
-        <span>Available for High-Impact Systems & AI Roles</span>
+      
+      <!-- Left Column: Identity & Directives -->
+      <div class="hero-content">
+        <div class="hero-status-pill">
+          <span class="status-dot"></span>
+          <span>Available for High-Impact Systems & AI Roles</span>
+        </div>
+
+        <h1 class="hero-title">
+          Engineering resilient <span class="hero-gradient-text">low-level systems</span> & autonomous <span class="hero-gradient-text">AI architectures</span>.
+        </h1>
+
+        <p class="hero-bio">
+          I am <strong>Simon Munyambu</strong>, a Software & AI/ML Systems Engineer based in Nairobi, Kenya.
+          I bridge the gap between <strong>bare-metal POSIX efficiency</strong> and <strong>state-of-the-art transformer inference</strong>.
+          I build deterministic software with zero runtime slop, verifiable exit-code-0 proofs, and high-craft interfaces.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn-primary" onclick="playClickSound()">
+            <span>Explore Projects</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#terminal" class="btn-secondary" onclick="playClickSound()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+            <span>Interactive Shell</span>
+          </a>
+          <a href="https://github.com/mtembez" target="_blank" rel="noopener noreferrer" class="btn-secondary" onclick="playClickSound()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <span>GitHub Profile</span>
+          </a>
+        </div>
       </div>
 
-      <h1 class="hero-title">
-        Engineering resilient <span class="hero-gradient-text">low-level systems</span> & autonomous <span class="hero-gradient-text">AI architectures</span>.
-      </h1>
+      <!-- Right Column: 3D Holographic Portrait Showcase -->
+      <div class="portrait-showcase-container">
+        <div class="portrait-card-wrapper" id="portraitCard">
+          <!-- Magic UI Rotating Border-Beam -->
+          <div class="border-beam-effect"></div>
 
-      <p class="hero-bio">
-        I am <strong>Simon Munyambu</strong>, a Software & AI/ML Systems Engineer based in Nairobi, Kenya.
-        I bridge the gap between <strong>bare-metal POSIX efficiency</strong> and <strong>state-of-the-art transformer inference</strong>.
-        I build deterministic software with zero runtime slop, verifiable exit-code-0 proofs, and high-craft interfaces.
-      </p>
+          <!-- Floating Badges -->
+          <div class="portrait-floating-badge badge-top-right">
+            <span class="badge-pulse-dot"></span>
+            <span>⚡ &lt; 0.2ms p99 Kernel Latency</span>
+          </div>
 
-      <div class="hero-cta-group">
-        <a href="#projects" class="btn-primary">
-          <span>Explore Projects</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#terminal" class="btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
-          <span>Launch Interactive Terminal</span>
-        </a>
-        <a href="https://github.com/mtembez" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-          <span>GitHub Profile</span>
-        </a>
+          <div class="portrait-floating-badge badge-bottom-left">
+            <span>🦁</span>
+            <span>Simon Munyambu · Nairobi, KE</span>
+          </div>
+
+          <!-- Inner Photo Frame -->
+          <div class="portrait-inner-frame">
+            <img src="assets/simon-munyambu.png" alt="Simon Munyambu - Software & AI/ML Systems Engineer" class="hero-portrait-img">
+            
+            <div class="portrait-lion-watermark">
+              <div class="portrait-identity-tag">
+                <span>Simon Munyambu</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#38bdf8"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <div class="portrait-sub-tag">Systems & AI Architecture · Verified</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Quick Telemetry Strip -->
-      <div class="hero-metrics-strip">
-        <div class="metric-col">
-          <div class="metric-val">&lt; 0.2ms</div>
-          <div class="metric-label">p99 Event Loop Latency</div>
+      <!-- Full-Width Live Systems Telemetry Bar -->
+      <div class="telemetry-node-strip">
+        <div class="telemetry-node-item">
+          <div class="telemetry-val" id="nairobiClock">12:00:00 PM</div>
+          <div class="telemetry-lbl">Nairobi Time (EAT · UTC+3)</div>
         </div>
-        <div class="metric-col">
-          <div class="metric-val">100%</div>
-          <div class="metric-label">Deterministic Unit Coverage</div>
+        <div class="telemetry-node-item">
+          <div class="telemetry-val">&lt; 14ms</div>
+          <div class="telemetry-lbl">Edge Latency (Cloudflare NBO)</div>
         </div>
-        <div class="metric-col">
-          <div class="metric-val">0-Bloat</div>
-          <div class="metric-label">Zero Premature Abstraction</div>
+        <div class="telemetry-node-item">
+          <div class="telemetry-val" style="color:var(--emerald);">100% PASS</div>
+          <div class="telemetry-lbl">Deterministic Test Coverage</div>
         </div>
-        <div class="metric-col">
-          <div class="metric-val">Nairobi</div>
-          <div class="metric-label">East Africa Time (UTC+3)</div>
+        <div class="telemetry-node-item">
+          <div class="telemetry-val">0-Bloat</div>
+          <div class="telemetry-lbl">Zero Premature Abstractions</div>
         </div>
       </div>
     </section>
 
-    <!-- 2. SKILLS MATRIX SECTION (BENTO GRID) -->
+    <!-- 2. SKILLS MATRIX SECTION (BENTO GRID WITH SPOTLIGHT) -->
     <section id="skills">
       <div class="section-header">
         <div class="section-eyebrow">Skills Matrix & Core Capabilities</div>
@@ -122,16 +163,16 @@
 
       <!-- Filter Controls -->
       <div class="skills-filter-bar">
-        <button class="filter-pill active" onclick="filterSkills('all')">All Domains</button>
-        <button class="filter-pill" onclick="filterSkills('systems')">Systems & Kernel</button>
-        <button class="filter-pill" onclick="filterSkills('ai')">AI / Machine Learning</button>
-        <button class="filter-pill" onclick="filterSkills('cloud')">Distributed & Cloud</button>
-        <button class="filter-pill" onclick="filterSkills('frontend')">Frontend & Design</button>
+        <button class="filter-pill active" onclick="filterSkills('all'); playClickSound();">All Domains</button>
+        <button class="filter-pill" onclick="filterSkills('systems'); playClickSound();">Systems & Kernel</button>
+        <button class="filter-pill" onclick="filterSkills('ai'); playClickSound();">AI / Machine Learning</button>
+        <button class="filter-pill" onclick="filterSkills('cloud'); playClickSound();">Distributed & Cloud</button>
+        <button class="filter-pill" onclick="filterSkills('frontend'); playClickSound();">Frontend & Design</button>
       </div>
 
       <div class="skills-bento-grid">
         <!-- 1. Systems & Kernel -->
-        <div class="bento-card" data-domain="systems">
+        <div class="bento-card spotlight-card" data-domain="systems">
           <div>
             <div class="card-icon-header">
               <div class="card-icon-badge">
@@ -156,7 +197,7 @@
         </div>
 
         <!-- 2. AI & Machine Learning -->
-        <div class="bento-card" data-domain="ai">
+        <div class="bento-card spotlight-card" data-domain="ai">
           <div>
             <div class="card-icon-header">
               <div class="card-icon-badge" style="color: var(--purple)">
@@ -181,7 +222,7 @@
         </div>
 
         <!-- 3. Distributed & Backend -->
-        <div class="bento-card" data-domain="cloud">
+        <div class="bento-card spotlight-card" data-domain="cloud">
           <div>
             <div class="card-icon-header">
               <div class="card-icon-badge" style="color: var(--emerald)">
@@ -206,7 +247,7 @@
         </div>
 
         <!-- 4. Frontend & Design Engineering -->
-        <div class="bento-card" data-domain="frontend">
+        <div class="bento-card spotlight-card" data-domain="frontend">
           <div>
             <div class="card-icon-header">
               <div class="card-icon-badge" style="color: var(--amber)">
@@ -257,7 +298,7 @@
           <div id="termOutput"></div>
           <div class="term-input-row">
             <span class="term-prompt">simon@munyambu:~$</span>
-            <input type="text" id="termInput" class="term-input-field" autocomplete="off" spellcheck="false" autofocus placeholder="Type a command...">
+            <input type="text" id="termInput" class="term-input-field" autocomplete="off" spellcheck="false" placeholder="Type a command...">
           </div>
         </div>
       </div>
@@ -273,7 +314,7 @@
 
       <div class="projects-grid">
         <!-- Project 1: Applications Console -->
-        <div class="project-card">
+        <div class="project-card spotlight-card">
           <div>
             <div class="project-top-row">
               <span class="project-type-pill">Live Production · Full Stack</span>
@@ -302,7 +343,7 @@
               <span class="tech-tag">Starlette ASGI</span>
               <span class="tech-tag">Rich CLI</span>
             </div>
-            <button class="btn-arch-drawer" onclick="openDrawer('apptracker')">
+            <button class="btn-arch-drawer" onclick="openDrawer('apptracker'); playClickSound();">
               <span>Inspect Architecture</span>
               <span>→</span>
             </button>
@@ -310,7 +351,7 @@
         </div>
 
         <!-- Project 2: Distributed Neural Inference Engine -->
-        <div class="project-card">
+        <div class="project-card spotlight-card">
           <div>
             <div class="project-top-row">
               <span class="project-type-pill" style="color: var(--purple); border-color: rgba(192, 132, 252, 0.3)">AI Systems · Low Latency</span>
@@ -336,7 +377,7 @@
               <span class="tech-tag">Rust</span>
               <span class="tech-tag">PyTorch</span>
             </div>
-            <button class="btn-arch-drawer" onclick="openDrawer('neuro')">
+            <button class="btn-arch-drawer" onclick="openDrawer('neuro'); playClickSound();">
               <span>Inspect Architecture</span>
               <span>→</span>
             </button>
@@ -344,7 +385,7 @@
         </div>
 
         <!-- Project 3: Async Network Ring Buffer -->
-        <div class="project-card">
+        <div class="project-card spotlight-card">
           <div>
             <div class="project-top-row">
               <span class="project-type-pill" style="color: var(--emerald); border-color: rgba(16, 185, 129, 0.3)">Kernel & Network</span>
@@ -370,7 +411,7 @@
               <span class="tech-tag">epoll</span>
               <span class="tech-tag">POSIX</span>
             </div>
-            <button class="btn-arch-drawer" onclick="openDrawer('packet')">
+            <button class="btn-arch-drawer" onclick="openDrawer('packet'); playClickSound();">
               <span>Inspect Architecture</span>
               <span>→</span>
             </button>
@@ -378,7 +419,7 @@
         </div>
 
         <!-- Project 4: Autonomous STEM Evaluation Framework -->
-        <div class="project-card">
+        <div class="project-card spotlight-card">
           <div>
             <div class="project-top-row">
               <span class="project-type-pill" style="color: var(--amber); border-color: rgba(245, 158, 11, 0.3)">AI Research & Benchmarks</span>
@@ -404,7 +445,7 @@
               <span class="tech-tag">OpenCV</span>
               <span class="tech-tag">NumPy</span>
             </div>
-            <button class="btn-arch-drawer" onclick="openDrawer('stem')">
+            <button class="btn-arch-drawer" onclick="openDrawer('stem'); playClickSound();">
               <span>Inspect Architecture</span>
               <span>→</span>
             </button>
@@ -496,7 +537,7 @@
       </div>
 
       <div class="contact-grid">
-        <a href="mailto:simonmunyambu@gmail.com" class="contact-card">
+        <a href="mailto:simonmunyambu@gmail.com" class="contact-card" onclick="playClickSound()">
           <div class="contact-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
@@ -506,7 +547,7 @@
           </div>
         </a>
 
-        <a href="https://github.com/mtembez" target="_blank" rel="noopener noreferrer" class="contact-card">
+        <a href="https://github.com/mtembez" target="_blank" rel="noopener noreferrer" class="contact-card" onclick="playClickSound()">
           <div class="contact-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
           </div>
