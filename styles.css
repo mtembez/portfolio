@@ -1219,71 +1219,68 @@ section {
 }
 
 /* --------------------------------------------------------------------------
-   Contact Modal
+   Contact Dock Section (Understated & Down at the Bottom)
    -------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------
-   Contact & Expert Consultation Section
-   -------------------------------------------------------------------------- */
+.contact-dock-section {
+  margin-top: 5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.dock-header {
+  margin-bottom: 1.75rem;
+}
+
+.dock-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sky);
+  margin-bottom: 0.35rem;
+}
+
+.dock-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.dock-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+
 .consultation-layout {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1.25fr;
   gap: 2.5rem;
-  margin-top: 1.5rem;
+  align-items: start;
 }
 
 .consultation-info-col {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-}
-
-.consult-value-card {
-  padding: 1.5rem;
-  border-radius: 14px;
-  background: var(--card-bg);
-  border: 1px solid var(--border-subtle);
-}
-
-.consult-value-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 0.75rem;
-}
-
-.consult-value-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.consult-value-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-.consult-value-item svg {
-  flex-shrink: 0;
-  margin-top: 0.2rem;
-  color: var(--sky);
+  gap: 1.25rem;
 }
 
 .response-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.4rem 0.85rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 9999px;
   background: rgba(16, 185, 129, 0.1);
   border: 1px solid rgba(16, 185, 129, 0.25);
   color: var(--emerald);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   width: fit-content;
 }
 
@@ -1492,14 +1489,14 @@ section {
     padding: 0 1rem 3.5rem;
   }
 
-  /* Visual Hierarchy: Hero -> Proof-of-Work (Projects) -> Skills Matrix -> Direct Hire/Contact -> Experience -> Philosophy -> Interactive CLI */
+  /* Visual Hierarchy: Hero -> Proof-of-Work (Projects) -> Skills Matrix -> Experience -> Philosophy -> Interactive CLI -> Contact (Down at bottom) */
   #hero { order: 1; }
   #projects { order: 2; }
   #skills { order: 3; }
-  #contact { order: 4; }
-  #experience { order: 5; }
-  #architecture { order: 6; }
-  #terminal { order: 7; }
+  #experience { order: 4; }
+  #architecture { order: 5; }
+  #terminal { order: 6; }
+  #contact { order: 7; }
   .footer { order: 8; margin-top: 3.5rem; }
 
   /* Priority within Contact: Immediate Action Form First, Explanatory Details Second */
